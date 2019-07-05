@@ -69,9 +69,6 @@ class Device extends React.Component {
     if (this.state.drawings) {
       return (
         <div>
-          <div className="device">
-            {this.state.name} - {this.state.id}
-          </div>
           <div className="board">
             {this.renderDrawings()}
           </div>
@@ -107,6 +104,19 @@ class Devices extends React.Component {
 
 }
 
+class DeviceList extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const devices = this.props.devices.map((d) =>
+      <div className="devicename">{d.name}</div>
+    );
+    return devices;
+  }
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -117,7 +127,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="App-header">
-            Tuhi WUI
+            <div id="logo">Tuhi WUI</div>
+            <DeviceList devices={this.state.devices} />
         </div>
         <div id="main">
             <Devices devices={this.state.devices}/>
