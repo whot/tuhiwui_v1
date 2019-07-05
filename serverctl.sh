@@ -16,7 +16,8 @@ rebuild() {
     podman run --rm \
         --volume ${PWD}/server/:/server:Z \
         openapitools/openapi-generator-cli \
-        generate -i /server/tuhiwui.yaml \
+        generate -i /$srvroot/tuhiwui.yaml \
+        -t $srvroot/templates \
         -g python-flask -o /$srvpath
     if [[ $? -ne 0 ]]; then
          exit $?
