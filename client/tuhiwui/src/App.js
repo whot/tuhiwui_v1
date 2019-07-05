@@ -37,9 +37,11 @@ class Drawing extends React.Component {
 
   render() {
     return (
-      <div className="Drawing">
-        <div className="Timestamp">{this.state.timestamp}</div>
-        {this.svg()}
+      <div className="drawing">
+        <div className="timestamp">{this.state.timestamp}</div>
+        <div className="svg">
+          {this.svg()}
+        </div>
       </div>
     );
   }
@@ -52,7 +54,7 @@ class Device extends React.Component {
   }
 
   renderDrawing(d) {
-    return <div><Drawing drawing={d} /></div>;
+    return <Drawing drawing={d} />
   }
 
   renderDrawings() {
@@ -66,10 +68,11 @@ class Device extends React.Component {
   render() {
     if (this.state.drawings) {
       return (
-        <div id="board">
-          {this.state.name} - {this.state.id}
-
-          <div className="board-row">
+        <div>
+          <div className="device">
+            {this.state.name} - {this.state.id}
+          </div>
+          <div className="board">
             {this.renderDrawings()}
           </div>
         </div>
@@ -122,11 +125,8 @@ class Devices extends React.Component {
 function App() {
   return (
     <div className="App">
-      <div id="header" >
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        <p>Tuhi WUI</p>
-        </header>
+      <div className="App-header">
+          Tuhi WUI
       </div>
       <div id="main">
           <Devices />
