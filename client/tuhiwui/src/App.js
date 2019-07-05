@@ -91,19 +91,39 @@ class Device extends React.Component {
 class Devices extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {"devices": []}
   }
 
   render() {
-    if (this.state.devices[0]) {
+    if (this.props.devices[0]) {
       return (
         <div class="device">
-          <Device data={this.state.devices[0]} />
+          <Device data={this.props.devices[0]} />
         </div>
       )
     } else {
         return <div>Loading...</div>
     }
+  }
+
+}
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {"devices": []}
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <div className="App-header">
+            Tuhi WUI
+        </div>
+        <div id="main">
+            <Devices devices={this.state.devices}/>
+        </div>
+      </div>
+    );
   }
 
   componentDidMount() {
@@ -120,19 +140,6 @@ class Devices extends React.Component {
     };
     xhr.send(null);
   }
-}
-
-function App() {
-  return (
-    <div className="App">
-      <div className="App-header">
-          Tuhi WUI
-      </div>
-      <div id="main">
-          <Devices />
-      </div>
-    </div>
-  );
 }
 
 export default App;
