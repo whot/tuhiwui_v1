@@ -52,4 +52,13 @@ while ! [[ -z "$1" ]]; do
 done
 
 [[ $rebuild == 1 ]] && rebuild
+
+echo "#####################################################################"
+echo "# Start Tuhi before this server                                     #"
+echo "# Once the server is running:                                       #"
+echo "#   cd client/tuhiwui                                               #"
+echo "#   npm start                                                       #"
+echo "#   go to http://localhost:3000/                                    #"
+echo "#####################################################################"
+
 [[ $run == 1 ]] && run
