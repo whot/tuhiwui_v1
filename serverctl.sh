@@ -22,6 +22,7 @@ rebuild() {
     if [[ $? -ne 0 ]]; then
          exit $?
     fi
+    patch -p0 < patches/cors.patch
 }
 
 run() {

@@ -1,0 +1,19 @@
+--- server/build/openapi_server/__main__.py	2019-07-05 18:19:43.332574418 +1000
++++ /home/whot/tmp/today/__main__.py	2019-07-05 18:19:31.301563627 +1000
+@@ -1,6 +1,7 @@
+ #!/usr/bin/env python3
+ 
+ import connexion
++from flask_cors import CORS
+ 
+ from openapi_server import encoder
+ 
+@@ -11,6 +12,8 @@
+     app.add_api('openapi.yaml',
+                 arguments={'title': 'TuhiWUI'},
+                 pythonic_params=True)
++
++    CORS(app.app)
+     app.run(port=8080)
+ 
+ 
